@@ -1,6 +1,8 @@
+import ipaddress
 from time import sleep
 import sys
 import manager
+import socket   
 
 print("""
 
@@ -54,7 +56,7 @@ Select your Search category:
 [9] Translate
 [10] Stocks
 [11] Sunrise in local time
-[12] Your IP Address
+[12] Your IP Address and Computer Name
 [13] Holiday Dates
 [14] Coding Docs      
 [15] Exit Advanced Google Search
@@ -218,4 +220,12 @@ elif opt == 2:
 
 # Still in progress 
 
-manager.Manager()
+elif opt == 12:
+    hostname = socket.gethostname()   
+    ipadd = socket.gethostbyname(hostname)
+    print(f"""Computer Name: {hostname}
+IP Address: {ipadd}""")
+
+
+# manager.Manager()
+# Manager file is incomplete, fixed once everything is done.
